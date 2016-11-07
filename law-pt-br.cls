@@ -51,10 +51,14 @@
 % Comando Parágrafo
 \newcounter{paragrafo}[artigo]
 \newcommand{\paragrafo}[1]{\refstepcounter{paragrafo} % 
-	\ifnum\theparagrafo<10 %
-	\S~\arabic{paragrafo}\textordmasculine~#1%\\
+	\ifnum\theparagrafo=1 %
+	Par\'agrafo \'unico.~#1%\\
 	\else
-	\S~\arabic{paragrafo}~#1%
+		\ifnum\theparagrafo<10 %
+		\S~\arabic{paragrafo}\textordmasculine~#1%\\
+		\else
+		\S~\arabic{paragrafo}~#1%
+		\fi
 	\fi
 }
 %------------------------------------------------
