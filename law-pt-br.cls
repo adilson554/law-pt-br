@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dil}[2016/10/06]
+\ProvidesClass{law-pt-br}[2016/10/07]
 % ----------- Classes --------------------------------
-\LoadClass{article} % Estudo alterar para o abntex2
+\LoadClass[12pt, a4paper]{article} % Estudo alterar para o abntex2
 %-----------------------------------------------------
 %
 %
@@ -38,11 +38,11 @@
 %------------------------------------------------
 % comando: Artigo
 \newcounter{artigo}
-\newcommand{\artigo}{\refstepcounter{artigo} % 
+\newcommand{\artigo}[1]{\refstepcounter{artigo} % 
 	\ifnum\theartigo<10 %
-	{\bfseries Art.~\arabic{artigo}\textordmasculine~~}%
+	{\textbf{Art.~\arabic{artigo}\textordmasculine}~~#1\smallskip}%
 	\else
-	{\bfseries Art. \arabic{artigo}~~}%
+	{\textbf{Art. \arabic{artigo}}~#1\smallskip}%
 	\fi
 }
 %------------------------------------------------
@@ -52,12 +52,12 @@
 \newcounter{paragrafo}[artigo]
 \newcommand{\paragrafo}[1]{\refstepcounter{paragrafo} % 
 	\ifnum\theparagrafo=1 %
-	Par\'agrafo \'unico.~#1%\\
+	\hspace{0.5cm}\textit{Par\'agrafo \'unico.}~#1\smallskip%
 	\else
 		\ifnum\theparagrafo<10 %
-		\S~\arabic{paragrafo}\textordmasculine~#1%\\
+		\hspace{0.5cm}\S~\arabic{paragrafo}\textordmasculine~#1\smallskip%
 		\else
-		\S~\arabic{paragrafo}~#1%
+		\hspace{0.5cm}\S~\arabic{paragrafo}~#1\smallskip%
 		\fi
 	\fi
 }
@@ -66,32 +66,27 @@
 %------------------------------------------------
 % Comando Inciso
 \newcounter{inciso}[paragrafo]
-\newcommand{\inciso}{\refstepcounter{inciso}% 
-	\Roman{inciso}.~-~
+\newcommand{\inciso}[1]{\refstepcounter{inciso}% 
+	\hspace{1cm}\Roman{inciso}.~-~#1\smallskip
 }
 %------------------------------------------------
 
 %------------------------------------------------
 % Comando Alinea
 \newcounter{alinea}[inciso]
-\newcommand{\alinea}{\refstepcounter{alinea}% 
-	\alph{alinea})~
+\newcommand{\alinea}[1]{\refstepcounter{alinea}% 
+	\hspace{1cm}\alph{alinea})~#1\smallskip
 }
 %------------------------------------------------
 
 %------------------------------------------------
 % Comando Itens
 \newcounter{itens}[alinea]
-\newcommand{\itens}{\refstepcounter{itens}% 
-	\arabic{itens}.~
+\newcommand{\itens}[1]{\refstepcounter{itens}% 
+	\hspace{1cm}\arabic{itens}.~#1\smallskip
 }
 %------------------------------------------------
-\newcommand{\descricao}[1]{\hfill%
-	\begin{minipage}{0.5\textwidth}
-		#1
-	\end{minipage}
-	\vspace{\baselineskip}
-}
+
 %------------------------------------------------
 % Comando títulos
 \newcounter{titulo}
@@ -111,9 +106,22 @@
 	\end{center}
 }
 %------------------------------------------------
+
+%------------------------------------------------
+% Comando seção
+\newcounter{secao}[titulo]
+\newcommand{\secao}[1]{\refstepcounter{cecao}% 
+	\begin{center}
+		\bfseries SE\C C\~AO~\Roman{cecao}\\\uppercase{#1}
+	\end{center}
+}
+%------------------------------------------------
 %************************************************
 \newcommand{\nomelei}[1]{
 	\begin{center}
-		\huge\textbf{#1}
+		\huge\textbf{#1}\linebreak
 	\end{center}
 }
+% --------------- abstract para preâmbulo -------
+\addto{\captionsbrazil}{\renewcommand{\abstractname}{Pre\^ambulo}}
+% -----------------------------------------------
