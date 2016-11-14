@@ -3,15 +3,10 @@
 % ----------- Classes --------------------------------
 \LoadClass[12pt, a4paper]{article} % Estudo alterar para o abntex2
 %-----------------------------------------------------
-%
-%
-%
-%
+
 % ----------- Pacotes --------------------------------
 \RequirePackage[normalem]{ulem} % pacote para cortar riscar o texto ao meio com o comando \sout{}
 \RequirePackage[pdftex]{geometry} % pacote para mudar as margens da página
-%
-%
 %
 % ---------- pacotes para digiar acentos -----
 \RequirePackage[utf8]{inputenc}
@@ -20,21 +15,17 @@
 %
 % ----------- fim dos pacotes ------------------------
 %
-%
-%
-%
 % ----------- papel e margens ------------------------
 \geometry{a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm}
 % ----------------------------------------------------
 %
-%
-%
+% ----------------------------------------------------
 % comando: riscar o texto
 \newcommand{\revogado}[1]{%
 	\sout{#1}
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % comando: Artigo
 \newcounter{artigo}
@@ -46,7 +37,7 @@
 	\fi
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % comando: Artigo revogado
 \newcounter{artigorev}
@@ -58,7 +49,7 @@
 	\fi
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Parágrafo
 \newcounter{paragrafo}[artigo]
@@ -70,7 +61,7 @@
 	\fi
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Parágrafo revogado
 \newcounter{paragraforev}[paragrafo]
@@ -82,7 +73,7 @@
 	\fi
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Parágrafo único
 \newcommand{\paragrafounico}[1]{% 
@@ -95,8 +86,7 @@
 	\hspace{0.5cm}\sout{\textit{Par\'agrafo \'unico.}~#1}\smallskip%
 }
 %------------------------------------------------
-
-
+%
 %------------------------------------------------
 % Comando Inciso
 \newcounter{inciso}[paragrafo]
@@ -104,7 +94,7 @@
 	\hspace{1cm}\Roman{inciso}.~-~#1\smallskip
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Inciso revogado
 \newcounter{incisorev}[paragrafo]
@@ -112,7 +102,7 @@
 	\hspace{1cm}\sout{\Roman{inciso}.~-~#1}\addtocounter{inciso}{-1}\smallskip
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Alinea
 \newcounter{alinea}[inciso]
@@ -128,7 +118,7 @@
 	\hspace{1cm}\sout{\alph{alinea})~#1}\addtocounter{alinea}{-1}\smallskip
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Itens
 \newcounter{itens}[alinea]
@@ -136,7 +126,7 @@
 	\hspace{1cm}\arabic{itens}.~#1\smallskip
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando Itens revogados
 \newcounter{itensrev}[alinea]
@@ -144,7 +134,7 @@
 	\hspace{1cm}\sout{\arabic{itens}.~#1}\addtocounter{itens}{-1}\smallskip
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando títulos
 \newcounter{titulo}
@@ -154,7 +144,7 @@
 	\end{center}
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando capítulo
 \newcounter{capitulo}[titulo]
@@ -164,7 +154,7 @@
 	\end{center}
 }
 %------------------------------------------------
-
+%
 %------------------------------------------------
 % Comando seção
 \newcounter{secao}[titulo]
